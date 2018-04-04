@@ -15,14 +15,14 @@ One way to patch this is to init metadata as an NSObject. For example:
 		id object = nil;
 		id metadata = nil;
 		[databaseTransaction getCollectionKey:&ck object:&object metadata:&metadata forRowid:rowid];
-		
-        // NOTE: - Fix for nil metadata!
-        // Swift will try to treat Any as AnyObject
-        // and will produce EXC_BAD_ACCESS
-        if (metadata == nil) {
-            metadata = [NSObject new];
-        }
-        
+
+		// NOTE: - Fix for nil metadata!
+		// Swift will try to treat Any as AnyObject
+		// and will produce EXC_BAD_ACCESS
+		if (metadata == nil) {
+			metadata = [NSObject new];
+		}
+
 		block(ck.collection, ck.key, object, metadata, index, stop);
 	}];
 ```
