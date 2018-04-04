@@ -3,6 +3,11 @@
 
 Swift runtime crashes with EXC_BAD_ACCESS on block invocation of Swift closure when called from Objective-C.
 
+### How to make it happen:
+
+1. Use '+' icon to create a few entries
+2. Tap on any entry row, an exception should happen
+
 One way to patch this is to init metadata as an NSObject. For example:
 
 
